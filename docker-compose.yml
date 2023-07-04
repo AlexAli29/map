@@ -1,29 +1,33 @@
 version: '3.9'
 services:
-  map:
-    container_name: map
-    image: map-api:0.1
-    build: ./map-api
+  map-api:
+    container_name: map-api
+    build: 
+      context: ./map-api
+      dockerfile: Dockerfile
     env_file:
-     - ./good-deeds-api
+    - ./map-api/.env
     restart: always
     depends_on:
-      - pg-primary
+      - pg-primary-map
     ports:
       - '3000:3000'
+    user: node
+    working_dir: /usr/src/app
+   
 
-  map-web:
-    image: map-web:0.1
-    build: ./map-web
-    env_file:
-    - ./map-web/docker.env
-    depends_on:
-    - good-deeds-api
-    ports:
-      - '3001:3001'
+  # map-web:
+  #   image: map-web:0.1
+  #   build: ./map-web
+  #   env_file:
+  #   - ./map-web/.env
+  #   depends_on:
+  #   -  map-api
+  #   ports:
+  #     - '3001:3001'
 
-  pg-primary:
-    container_name: pg-primary-profile  
+  pg-primary-map:
+    container_name: pg-primary-map
     ports:
       - 5432:5432
     image: bitnami/postgresql:15.3.0
@@ -34,7 +38,7 @@ services:
       - POSTGRESQL_PASSWORD=password123
       - POSTGRESQL_DATABASE=map     
     volumes:
-      - 'pg-primary-profile_data:/bitnami/postgresql'
+      - 'pg-primary-map_data:/bitnami/postgresql'
     restart: always
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U admin']
@@ -42,9 +46,24 @@ services:
       timeout: 30s
       retries: 3
 
+  pg-admin-map:
+    container_name: pg-admin-map
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@gmai.com
+      - PGADMIN_DEFAULT_PASSWORD=password123 
+    depends_on:
+      - pg-primary-map
+    volumes:
+      - pg-admin-data:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    image: dpage/pgadmin4:latest
+
   
 volumes:
-  pg-primary-profile_data:
+  pg-primary-map_data:
+    driver: local
+  pg-admin-data:
     driver: local
 
 

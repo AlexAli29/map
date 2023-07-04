@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 
 import { BaseInterfaceRepository } from './base.interface.repository';
-import { Base } from 'entity/base.entity';
+import { Base } from 'src/interface/base.interface';
 
 export abstract class BaseAbstractRepository<T extends Base>
   implements BaseInterfaceRepository<T>

@@ -7,7 +7,7 @@ import {
   InternalServerErrorException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { TokenPayload } from '../interface/token-payload.interface';
+import { TokenPayload } from '../../interface/token-payload.interface';
 import { UserRepository } from 'src/repositories/user.repository';
 
 @Injectable()

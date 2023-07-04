@@ -25,15 +25,16 @@ import { LocalStrategy } from './strategies/local.strategy';
       useFactory: getJWTConfig,
     }),
     DataBaseModule,
-    UserRepository,
     TypeOrmModule.forFeature([User, Place]),
     PassportModule,
   ],
   providers: [
+    ConfigService,
     AuthService,
     AccessTokenStrategy,
     RefreshTokenStrategy,
     LocalStrategy,
+    UserRepository, // UserRepository has been moved to providers
   ],
 })
 export class AuthModule {}

@@ -5,7 +5,7 @@ import { RegisterUserDto } from './dto/register-user.dto';
 import { ConfigService } from '@nestjs/config';
 import { EnvVariable } from 'src/enum/env-variable.enum';
 import { User } from 'src/entity/user';
-import { TokenPayload } from './interface/token-payload.interface';
+import { TokenPayload } from '../interface/token-payload.interface';
 
 @Injectable()
 export class AuthService {

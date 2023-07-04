@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  map-api:
+    build:
+      target: development
+    command: yarn start:debug
+    volumes:
+      - ./map-api:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '9232:9229'
