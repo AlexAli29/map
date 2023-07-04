@@ -1,0 +1,50 @@
+version: '3.9'
+services:
+  map:
+    container_name: map
+    image: map-api:0.1
+    build: ./map-api
+    env_file:
+     - ./good-deeds-api
+    restart: always
+    depends_on:
+      - pg-primary
+    ports:
+      - '3000:3000'
+
+  map-web:
+    image: map-web:0.1
+    build: ./map-web
+    env_file:
+    - ./map-web/docker.env
+    depends_on:
+    - good-deeds-api
+    ports:
+      - '3001:3001'
+
+  pg-primary:
+    container_name: pg-primary-profile  
+    ports:
+      - 5432:5432
+    image: bitnami/postgresql:15.3.0
+    environment:
+      - PGDATA=/bitnami/postgresql/data
+      - POSTGRESQL_POSTGRES_PASSWORD=password123
+      - POSTGRESQL_USERNAME=admin
+      - POSTGRESQL_PASSWORD=password123
+      - POSTGRESQL_DATABASE=map     
+    volumes:
+      - 'pg-primary-profile_data:/bitnami/postgresql'
+    restart: always
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U admin']
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+  
+volumes:
+  pg-primary-profile_data:
+    driver: local
+
+
