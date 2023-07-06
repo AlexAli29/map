@@ -8,7 +8,7 @@ import { logOut, setToken } from "../slices/auth.slice";
 import { IAuth } from "../interfaces/auth.interface";
 
 const baseQuery = fetchBaseQuery({
-	baseUrl: import.meta.env.PUBLIC_API_BASE_URL,
+	baseUrl: import.meta.env.VITE_PUBLIC_API_BASE_URL,
 	credentials: "include",
 	prepareHeaders: (Headers, { getState }: { getState: () => any }) => {
 		const token = getState().auth.access_token;

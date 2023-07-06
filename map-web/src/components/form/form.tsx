@@ -23,7 +23,8 @@ export const Form = ({ type }: { type: AuthType }) => {
 		password: "",
 	});
 
-	const onFormSubmit = async () => {
+	const onFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
 		if (type == "register") {
 			const res = await register(registerData);
 			if ("data" in res) {
