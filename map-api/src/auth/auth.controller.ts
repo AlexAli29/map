@@ -73,6 +73,12 @@ export class AuthController {
   }
 
   @UseGuards(AccessTokenAuthGuard)
+  @Get('user')
+  async getUser(@CurrentUser() user: User) {
+    return user;
+  }
+
+  @UseGuards(AccessTokenAuthGuard)
   @Get('logout')
   async logout(@Res({ passthrough: true }) res: Response) {
     res.clearCookie('refresh_token');

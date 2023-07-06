@@ -6,5 +6,5 @@ export class Place {
   @PrimaryGeneratedColumn()
   id: string;
   @ManyToOne(() => User, (user) => user.places, { onDelete: 'CASCADE' })
-  user: User;
+  user?: User;
 }
