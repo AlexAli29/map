@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { AuthType } from "../../enums/auth-type.enum";
-import { ILoginUserDto } from "../../interfaces/login-user-dto.interface";
-import { IRegisterUserDto } from "../../interfaces/register-user-dto.interface";
+import { AuthType } from "../../../enums/auth-type.enum";
+import { ILoginUserDto } from "../../../interfaces/login-user-dto.interface";
+import { IRegisterUserDto } from "../../../interfaces/register-user-dto.interface";
 import {
 	useLoginMutation,
 	useRegisterMutation,
-} from "../../services/auth/auth.api";
+} from "../../../services/auth/auth.api";
 import { useDispatch } from "react-redux";
-import { setToken } from "../../slices/auth.slice";
+import { setToken } from "../../../slices/auth.slice";
 
 export const Form = ({ type }: { type: AuthType }) => {
 	const dispatch = useDispatch();
