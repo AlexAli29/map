@@ -10,8 +10,9 @@ import { BookMarkIcon } from "../icons/bookmark.icon";
 export const Button = ({
 	children,
 	size = "default",
+	color = "white",
 	icon = "none",
-	filled = true,
+	iconFilled = true,
 	outlined = false,
 }: {
 	children?: ReactNode;
@@ -23,20 +24,35 @@ export const Button = ({
 		| "login"
 		| "location_plane"
 		| "book_mark";
-	filled?: boolean;
+	color?:
+		| "blue"
+		| "red"
+		| "gray"
+		| "login"
+		| "gray-lighter"
+		| "dark-blue-primary"
+		| "dark-blue-secondary"
+		| "black "
+		| "white";
+	iconFilled?: boolean;
 	outlined?: boolean;
 }) => {
 	return (
 		<button
-			className={cn(style[`${size}`], style.button, outlined && style.outline)}>
+			className={cn(
+				style[`${size}`],
+				style.button,
+				outlined && style.outline,
+				style[`${color}`]
+			)}>
 			{
 				{
 					none: null,
-					search: <SearchIcon filled={filled} />,
-					location: <LocationIcon filled={filled} />,
-					login: <LoginIcon filled={filled} />,
-					location_plane: <LocationPlaneIcon filled={filled} />,
-					book_mark: <BookMarkIcon filled={filled} />,
+					search: <SearchIcon filled={iconFilled} />,
+					location: <LocationIcon filled={iconFilled} />,
+					login: <LoginIcon filled={iconFilled} />,
+					location_plane: <LocationPlaneIcon filled={iconFilled} />,
+					book_mark: <BookMarkIcon filled={iconFilled} />,
 				}[icon]
 			}
 			{children}
