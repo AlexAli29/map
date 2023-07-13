@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
-import { Form } from "../../components/ui/form/form";
-import { AuthType } from "../../enums/auth-type.enum";
+
+import { AuthType } from "src/enums/auth-type.enum";
+import { Form } from "src/ui";
 
 export const AuthPage = () => {
 	const { authType } = useParams<{ authType: AuthType }>();

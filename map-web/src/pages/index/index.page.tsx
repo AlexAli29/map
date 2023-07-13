@@ -1,18 +1,9 @@
-import { Link } from "react-router-dom";
-import { AuthType } from "../../enums/auth-type.enum";
-import { Button } from "../../components/ui/button/button";
+import { Map } from "src/components/map/Map";
+
 export const IndexPage = () => {
 	return (
 		<>
-			<Link to={`auth/${AuthType.Login}`}>login</Link>
-			<br />
-			<Link to={`auth/${AuthType.Register}`}>register</Link>
-			<Button
-				size="small"
-				color="blue"
-				icon="location"
-				iconFilled={false}
-				outlined={true}></Button>
+			<Map />
 		</>
 	);
 };

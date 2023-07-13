@@ -1,0 +1,57 @@
+@use "src/colors.scss" as colors;
+
+.container {
+	border: 3px colors.$gray-lighter solid;
+	border-radius: 10px;
+	padding: 20px 30px 23px 20px;
+	width: 350px;
+	height: 231px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 11px;
+	&__header {
+		display: flex;
+		column-gap: 20px;
+		&_badge {
+			position: relative;
+			border-radius: 10px;
+			width: 122px;
+			height: 99px;
+			background-color: colors.$gray-light;
+		}
+		&_title {
+			width: 160px;
+			word-break: break-all;
+			display: flex;
+			align-items: center;
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 800;
+			line-height: normal;
+		}
+	}
+
+	&__header_markers {
+		display: flex;
+		position: absolute;
+		bottom: 10px;
+		right: 5px;
+	}
+
+	&__description {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		word-break: break-all;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 11px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+	}
+
+	&__buttons {
+		height: 20px;
+	}
+}

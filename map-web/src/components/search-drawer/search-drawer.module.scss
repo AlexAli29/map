@@ -1,0 +1,94 @@
+@use "src/colors.scss" as colors;
+
+.container {
+	display: flex;
+	row-gap: 35px;
+	flex-direction: column;
+	padding: 25px 25px 36px 30px;
+	border-left: 3px solid colors.$border;
+	box-shadow: 1px 0px 30px 0px rgba(0, 0, 0, 0.18);
+	height: 100%;
+	width: 400px;
+	justify-content: start;
+
+	&__input_wrapper {
+		width: 350px;
+		height: 60px;
+	}
+
+	&__markers_wrapper {
+		display: flex;
+		flex-direction: column;
+		p {
+			font-size: 20px;
+			font-weight: bold;
+		}
+	}
+
+	&__markers_list {
+		width: 350px;
+		border: 3px solid colors.$border;
+		border-radius: 10px;
+		padding-right: 15px;
+		padding-left: 5px;
+		padding-top: 3px;
+		padding-bottom: 0;
+		z-index: 10000;
+		background-color: colors.$white;
+		&__content {
+			height: 490px;
+			display: flex;
+
+			row-gap: 3px;
+			overflow-y: scroll;
+			flex-direction: column;
+			&::-webkit-scrollbar {
+				width: 4px;
+			}
+			&::-webkit-scrollbar-track {
+				background-color: transparent;
+			}
+			&::-webkit-scrollbar-thumb {
+				border-radius: 20px;
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+
+			@media (max-height: 720px) {
+				& {
+					height: 320px;
+				}
+			}
+		}
+	}
+
+	&__bottom_section {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex-grow: 1;
+
+		&__radius_container {
+			display: flex;
+			margin-top: -23px;
+			flex-direction: column;
+			row-gap: 15px;
+
+			p {
+				font-size: 20px;
+				font-weight: bold;
+			}
+			.input_container {
+				font-weight: 800;
+				width: 145px;
+				height: 50px;
+				display: flex;
+				column-gap: 20px;
+				align-items: center;
+				.input {
+					font-size: 16px;
+					padding-left: 30px;
+				}
+			}
+		}
+	}
+}

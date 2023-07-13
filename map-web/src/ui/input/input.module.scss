@@ -1,0 +1,53 @@
+@use "src/colors.scss" as colors;
+
+.input-container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.input {
+	text-align: start;
+	border-radius: 10px;
+	outline: none;
+	border: none;
+	padding: 0;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	width: 100%;
+	height: 100%;
+	transition: 0.2s;
+	padding-left: 72px;
+	&:focus {
+		border: rgb(143, 137, 137) solid;
+	}
+}
+
+.border {
+	border: 3px colors.$border solid;
+}
+
+.left-icon-container {
+	z-index: 20;
+	position: absolute;
+	left: 65px;
+	top: 45px;
+}
+
+.right-icon-container {
+	z-index: 20;
+	position: absolute;
+	right: 90px;
+	top: 43px;
+}
+
+.input-without-icon {
+	width: 97%;
+	padding-left: 10px;
+}
+
+.error-border {
+	border-color: rgb(233, 119, 119);
+}

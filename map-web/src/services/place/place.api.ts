@@ -1,6 +1,6 @@
+import { IUser } from "src/interfaces/user.interface";
 import { apiSlice } from "../apiSlice";
-import { IUser } from "../../interfaces/user.interface";
-import { IPlace } from "../../interfaces/place.interface";
+import { IPlace } from "src/interfaces/place.interface";
 
 export const placeApi = apiSlice.injectEndpoints({
 	endpoints: (build) => ({

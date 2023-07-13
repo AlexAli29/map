@@ -1,0 +1,101 @@
+@use "src/colors.scss" as colors;
+
+.button {
+	border: none;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 12px;
+	color: var(--white, #fff);
+	font-family: Mont;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	transition: 0.1s all ease-in-out;
+	&:hover {
+		transform: scale(101%);
+		box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+		filter: contrast(130%);
+	}
+	&:active {
+		transform: scale(99%);
+	}
+}
+
+.mobile {
+	width: 40px;
+	height: 40px;
+}
+
+.extra-small {
+	width: 50px;
+	height: 50px;
+}
+
+.small {
+	width: 60px;
+	height: 60px;
+}
+
+.default {
+	width: 132px;
+	height: 40px;
+	font-size: 1.1rem;
+}
+
+.wide {
+	width: 154px;
+	height: 40px;
+}
+
+.wider {
+	font-size: 1.3rem;
+	width: 350px;
+	height: 60px;
+}
+
+.outline {
+	border: 3px solid colors.$gray-lighter;
+}
+
+.blue {
+	background-color: colors.$blue;
+}
+
+.red {
+	background-color: colors.$red;
+}
+
+.gray-lighter {
+	background-color: colors.$gray-lighter;
+}
+
+.dark-blue-primary {
+	background-color: colors.$dark-blue-primary;
+}
+
+.dark-blue-secondary {
+	background-color: colors.$dark-blue-secondary;
+}
+
+.black {
+	background-color: colors.$black;
+}
+
+.white {
+	background-color: colors.$white;
+}
+
+.font-black {
+	color: colors.$black;
+}
+
+.font-white {
+	color: colors.$white;
+}
+
+.font-gray-lighter {
+	color: colors.$gray-lighter;
+}
