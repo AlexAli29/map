@@ -16,3 +16,4 @@ export { ReligionMarker } from "./ReligionMarker";
 export { ShoppingMarker } from "./ShoppingMarker";
 export { SleepMarker } from "./SleepMarker";
 export { SportMarker } from "./SportMarker";
+export { CurrentLocationMarker } from "./CurrentLocationMarker";

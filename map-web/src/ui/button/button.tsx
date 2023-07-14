@@ -37,9 +37,11 @@ export const Button = ({
 	onClick,
 	type,
 	className,
+	disabled,
 }: IButtonProps) => {
 	return (
 		<button
+			disabled={disabled}
 			type={type}
 			onClick={onClick}
 			className={cn(

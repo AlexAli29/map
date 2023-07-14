@@ -31,9 +31,9 @@
 		flex-direction: column;
 		row-gap: 25px;
 		height: 745px;
-		@media (max-height: 720px) {
+		@media (max-height: 790px) {
 			& {
-				height: 540px;
+				height: 617px;
 			}
 		}
 		overflow-y: scroll;
@@ -48,5 +48,15 @@
 			border-radius: 20px;
 			background-color: colors.$white;
 		}
+	}
+
+	&__unauthorized_wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		row-gap: 20px;
+		font-size: 20px;
+		font-weight: 600;
 	}
 }

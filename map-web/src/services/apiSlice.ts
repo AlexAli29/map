@@ -4,6 +4,9 @@ import {
 	createApi,
 	fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
+import { IAuth } from "src/interfaces/auth.interface";
+import { logOut, setToken } from "src/store/slices/auth.slice";
+import { removeUser } from "src/store/slices/user.slice";
 
 const baseQuery = fetchBaseQuery({
 	baseUrl: import.meta.env.VITE_PUBLIC_API_BASE_URL,
@@ -35,9 +38,10 @@ const baseQueryWithReauth = async (
 
 		if (refreshResult.data) {
 			result = await baseQuery(args, api, extraOptions);
-			//TODO
+			api.dispatch(setToken(result.data as IAuth));
 		} else {
-			//TODO
+			api.dispatch(logOut());
+			api.dispatch(removeUser());
 		}
 	}
 

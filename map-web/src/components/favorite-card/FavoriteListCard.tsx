@@ -2,8 +2,10 @@ import { Button } from "src/ui";
 import style from "./favorite-list-card.module.scss";
 import { BookMarkIcon } from "src/ui/icons";
 import { CafeMarker, ShoppingMarker } from "src/ui/icons/markers";
+import { useUser } from "src/hooks/useUser";
 
 export const FavoriteListCard = () => {
+	const user = useUser();
 	return (
 		<div className={style.container}>
 			<div className={style["container__header"]}>

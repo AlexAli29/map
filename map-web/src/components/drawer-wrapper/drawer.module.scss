@@ -1,6 +1,7 @@
 @use "src/colors.scss" as colors;
 
 .sidebar {
+	z-index: 200;
 	background-color: colors.$white;
 	position: fixed;
 	top: 0;

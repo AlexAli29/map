@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import { IPlace } from "src/interfaces/place.interface";
 import { IUser } from "src/interfaces/user.interface";
 import { RootState } from "src/store/store";
@@ -16,6 +17,13 @@ export const userSlice = createSlice({
 	initialState,
 	reducers: {
 		setUser(state, action: PayloadAction<IUser>) {
+			toast.success(`Welcome ${action.payload.name}`, {
+				position: toast.POSITION.TOP_RIGHT,
+				autoClose: 1500,
+				toastId: action.payload.id ?? "",
+				theme: "colored",
+			});
+
 			state.id = action.payload.id;
 			state.email = action.payload.email;
 			state.name = action.payload.name;
@@ -38,6 +46,7 @@ export const userSlice = createSlice({
 });
 
 export const { actions } = userSlice;
+export const { removeUser } = userSlice.actions;
 
 export const selectUser = (state: RootState) => state.user;
 export const selectPlaces = (state: RootState) => state.user.places;

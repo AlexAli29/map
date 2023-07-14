@@ -50,4 +50,7 @@
 
 .error-border {
 	border-color: rgb(233, 119, 119);
+	&:focus {
+		border-color: rgb(233, 119, 119);
+	}
 }
