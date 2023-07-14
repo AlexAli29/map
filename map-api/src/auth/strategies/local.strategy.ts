@@ -22,7 +22,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
         where: [{ email: identifier }, { name: identifier }],
       });
 
-      if (user) {
+      if (!user) {
         throw new NotFoundException(USER_NOT_FOUND_LOGIN);
       }
 
@@ -31,7 +31,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
       }
       return user;
     } catch (error) {
-      throw new InternalServerErrorException();
+      throw new NotFoundException(error.response.message);
     }
   }
 }

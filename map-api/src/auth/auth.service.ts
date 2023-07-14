@@ -1,11 +1,12 @@
 import { JwtService } from '@nestjs/jwt';
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { UserRepository } from 'src/repositories/user.repository';
 import { RegisterUserDto } from './dto/register-user.dto';
 import { ConfigService } from '@nestjs/config';
 import { EnvVariable } from 'src/enum/env-variable.enum';
 import { User } from 'src/entity/user';
 import { TokenPayload } from '../interface/token-payload.interface';
+import { EMAIL_ALREADY_TAKEN } from './auth.constant';
 
 @Injectable()
 export class AuthService {
@@ -16,6 +17,14 @@ export class AuthService {
   ) {}
 
   async register(dto: RegisterUserDto) {
+    const checkEmail = await this.userRepository.findByCondition({
+      where: { email: dto.email },
+    });
+
+    if (checkEmail) {
+      throw new ConflictException(EMAIL_ALREADY_TAKEN);
+    }
+
     const newUser = this.userRepository.create({
       name: dto.name,
       email: dto.email,
