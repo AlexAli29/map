@@ -1,10 +1,9 @@
-import { Button } from "src/ui";
 import style from "./favorite-list-card.module.scss";
 import { BookMarkIcon } from "src/ui/icons";
 import { CafeMarker, ShoppingMarker } from "src/ui/icons/markers";
 import { useUser } from "src/hooks/useUser";
 
-export const FavoriteListCard = () => {
+export const FavoriteListCard = ({ name }: { name: string }) => {
 	const user = useUser();
 	return (
 		<div className={style.container}>
@@ -15,9 +14,7 @@ export const FavoriteListCard = () => {
 						<ShoppingMarker />
 					</div>
 				</div>
-				<div className={style["container__header_title"]}>
-					ggfgffghgffgh fgfghfhhf f sf ereree
-				</div>
+				<div className={style["container__header_title"]}>{name}</div>
 			</div>
 			<div className={style["container__description"]}>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolor

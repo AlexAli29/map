@@ -1,10 +1,9 @@
 import { GoogleMapsProvider } from "@ubilabs/google-maps-react-hooks";
-import styles from "./map.module.scss";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback, useLayoutEffect } from "react";
 import { useUserCoordinates } from "src/hooks/useUserCoordinates";
 import { MapControls } from "../map-controlls/MapControlls";
 import MapCanvas from "../map-canvas/MapCanvas";
-import MapMarkers from "../map-markers/map-markers";
+import MapMarkers from "../map-markers/MapMarkers";
 
 export const Map = () => {
 	const [mapContainer, setMapContainer] = useState<HTMLDivElement | null>(null);
@@ -22,7 +21,7 @@ export const Map = () => {
 
 	const getCoordinates = useUserCoordinates();
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const requestCoordinates = async () => {
 			const coordinates = await getCoordinates();
 
@@ -30,13 +29,6 @@ export const Map = () => {
 		};
 		requestCoordinates();
 	}, []);
-
-	const addMarkers = (map: google.maps.Map) => {
-		const marker = new google.maps.Marker({ position: userCoordinates });
-		return marker;
-	};
-
-	const onLoad = useCallback((map: google.maps.Map) => addMarkers(map), []);
 
 	const mapOptions: google.maps.MapOptions = {
 		zoom: 15,
@@ -52,10 +44,10 @@ export const Map = () => {
 	return (
 		<>
 			<GoogleMapsProvider
+				libraries={["places"]}
 				googleMapsAPIKey={import.meta.env.VITE_PUBLIC_GOOGLE_API_KEY}
 				mapContainer={mapContainer}
-				mapOptions={mapOptions}
-				onLoadMap={onLoad}>
+				mapOptions={mapOptions}>
 				<MapCanvas ref={mapRef} />
 				<MapMarkers userCoordinates={userCoordinates} />
 				<MapControls userCoordinates={userCoordinates} />

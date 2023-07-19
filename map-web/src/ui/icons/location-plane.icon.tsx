@@ -6,7 +6,7 @@ export const LocationPlaneIcon = ({ filled }: { filled: boolean }) => {
 			viewBox="0 0 28 28"
 			fill={filled ? "#5E7BC7" : "none"}
 			xmlns="http://www.w3.org/2000/svg">
-			<g id="tabler:location-filled" clip-path="url(#clip0_1_4078)">
+			<g id="tabler:location-filled" clipPath="url(#clip0_1_4078)">
 				<g id="Group">
 					<path
 						id="Vector"

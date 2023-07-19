@@ -1,9 +1,9 @@
-import { Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, ManyToOne, PrimaryColumn } from 'typeorm';
 import { User } from './user';
 
 @Entity('places')
 export class Place {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn('varchar')
   id: string;
   @ManyToOne(() => User, (user) => user.places, { onDelete: 'CASCADE' })
   user?: User;

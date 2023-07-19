@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { AuthType } from "src/enums/auth-type.enum";
+import { AuthType } from "src/constants/auth-type.enum";
 import { ILoginUserDto } from "src/interfaces/login-user-dto.interface";
 import { IRegisterUserDto } from "src/interfaces/register-user-dto.interface";
 import {
@@ -23,10 +23,18 @@ export const Form = ({ type }: { type: AuthType }) => {
 		toast.error(`${error}`, {
 			position: toast.POSITION.TOP_CENTER,
 			autoClose: 1500,
-			toastId: "1",
 			theme: "colored",
 		});
 	};
+
+	const welcomeToast = (name: string) => {
+		toast.success(`Welcome ${name}`, {
+			position: toast.POSITION.TOP_RIGHT,
+			autoClose: 1500,
+			theme: "colored",
+		});
+	};
+
 	const [
 		login,
 		{
@@ -80,6 +88,7 @@ export const Form = ({ type }: { type: AuthType }) => {
 			setUser(GetUserData);
 			resetLogin();
 			resetRegister();
+			welcomeToast(GetUserData.name ?? "");
 			navigate("/");
 		}
 		if (isGetUserError && GetUserError) {

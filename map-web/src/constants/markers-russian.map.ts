@@ -1,4 +1,4 @@
-import { MarkerType } from "src/enums/marker-type.enum";
+import { MarkerType } from "src/constants/marker-type.enum";
 
 export const MarkerTypeRussianMap: { [key in MarkerType]: string } = {
 	[MarkerType.Food]: "Eда",

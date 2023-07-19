@@ -1,4 +1,4 @@
-import { DrawerType } from "src/enums/drawer-type.enum";
+import { DrawerType } from "src/constants/drawer-type.enum";
 import style from "./drawer.module.scss";
 import cn from "classnames";
 import { FavoritesDrawer, SearchDrawer } from "..";

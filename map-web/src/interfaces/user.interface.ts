@@ -4,5 +4,5 @@ export interface IUser {
 	id: string | null;
 	name: string | null;
 	email: string | null;
-	places: IPlace[] | null;
+	places: Pick<IPlace, "id">[];
 }

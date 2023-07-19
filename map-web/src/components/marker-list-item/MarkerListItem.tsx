@@ -1,9 +1,10 @@
-import { MarkerType } from "src/enums/marker-type.enum";
+import { MarkerType } from "src/constants/marker-type.enum";
 import cn from "classnames";
 import style from "./marker-list-item.module.scss";
 import { Marker } from "../marker/Marker";
-import { MarkerTypeRussianMap } from "src/const/markers-russian.map";
+
 import { useCallback, useState } from "react";
+import { MarkerTypeRussianMap } from "src/constants/markers-russian.map";
 
 export const MarkerListItem = ({ markerType }: { markerType: MarkerType }) => {
 	const [isSelected, setIsSelected] = useState(false);

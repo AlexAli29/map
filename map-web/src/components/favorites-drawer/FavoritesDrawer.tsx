@@ -1,10 +1,9 @@
 import { Button, Input } from "src/ui";
 import style from "./favorites-drawer.module.scss";
-import { MarkerListItem } from "../marker-list-item/MarkerListItem";
 import { FavoriteListCard } from "..";
 import { useUser } from "src/hooks/useUser";
 import { Link } from "react-router-dom";
-import { AuthType } from "src/enums/auth-type.enum";
+import { AuthType } from "src/constants/auth-type.enum";
 
 export const FavoritesDrawer = () => {
 	const user = useUser();
@@ -19,11 +18,12 @@ export const FavoritesDrawer = () => {
 						<div className={style["container__favorites_wrapper"]}>
 							<p> Избранное:</p>
 							<div className={style["container__favorites-list"]}>
-								<FavoriteListCard />
-								<FavoriteListCard />
-								<FavoriteListCard />
-								<FavoriteListCard />
-								<FavoriteListCard />
+								<FavoriteListCard name="ggdgd" />
+								<FavoriteListCard name="ggdgd" />
+								<FavoriteListCard name="ggdgd" />
+								<FavoriteListCard name="ggdgd" />
+								<FavoriteListCard name="ggdgd" />
+								<FavoriteListCard name="ggdgd" />
 							</div>
 						</div>
 					</>
